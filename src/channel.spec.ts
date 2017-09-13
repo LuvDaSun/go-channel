@@ -1,4 +1,5 @@
 import * as test from "blue-tape";
+import { delay } from "promise-u";
 import { Channel, ReceiveChannel, SendChannel } from "./channel";
 
 test("create channel", async (t) => {
@@ -16,7 +17,7 @@ test("Go by Example: Channels", async (t) => {
         const message = new Channel<string>();
 
         // go func() { messages <- "ping" }()
-        message.send("ping");
+        (async () => await message.send("ping"))();
 
         // msg := <-messages
         const msg = await message.receive();
@@ -66,7 +67,7 @@ test("Go by Example: Channel Synchronization", async (t) => {
         fmt.push("working...");
 
         // time.Sleep(time.Second)
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await delay(1000);
 
         // fmt.Println("done")
         fmt.push("done");
