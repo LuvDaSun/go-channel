@@ -1,6 +1,6 @@
 {
   "name": "go-channel",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "./obj/main.js",
   "types": "./obj/main.d.ts",
