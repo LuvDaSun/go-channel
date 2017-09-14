@@ -40,10 +40,10 @@ test("Go by Example: Channel Buffering", async (t) => {
         const message = new Channel<string>(2);
 
         // messages <- "buffered"
-        message.send("buffered");
+        await message.send("buffered");
 
         // messages <- "channel"
-        message.send("channel");
+        await message.send("channel");
 
         // fmt.Println(<-messages)
         fmt.push(await message.receive());
@@ -73,7 +73,7 @@ test("Go by Example: Channel Synchronization", async (t) => {
         fmt.push("done");
 
         // done <- true
-        done.send(true);
+        await done.send(true);
     };
 
     // func main() {
