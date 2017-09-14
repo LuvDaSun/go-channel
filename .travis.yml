@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '8'
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: elmerbulthuis@gmail.com
+  api_key:
+    secure: S1r52CPOdYK+nNYbzlS+M0l+H6dUm2m6PTnDFjK1sYKvOVlu9kqjq+7VoVR+0uKgm/o+Dgj+tw5lQIWcEeFGbECQzKZ9hFE+u4MxCSLADtBfJFwzHANDE6w03UGn/lL+2KS2km68I+K/H9JYrINtA0Ajn2oGLZgPBAf7wUFtjcPoEjZrhB9EsJTww8p15VnwA3rwwft7qMJ5QDTjX9CuxsJp0N9bwNwg/3wbRYnxkUqMJhv7DssnMmlqG9l/hj+4UQ32VeHGADGGPBzoEmGmmYNSj/9Fy6ZoqtJXBlUAW006yIXU1+Mnjp92oSAoHbioQlhxsqGRRxgcddcTVHwp7UAb2wpmbjnDh7M2fIAhN3uuLiOhdDamS5+Fp3u2MRZRFsyK3ZOmIL/ocCdr3aPux+mdNwtUIQm0dB7pRrNQ5+YR18wOkoPHxoqDj88NUF1hAJ/nWufofW+14QgUvt8/Cn78wmXwq77SFvQxsfzSLxhvnrEsAlBvB78jWSzm0Ll/PZIgxtHlD+zqqAaHHtbuiKgAsA+EuSAxU1ZtibE1NdIUcj9Ck4GajKQbeeyJl6cY4NxEKs59cVI9OSRaaXbYDEgP2k+cUOEo1ZWmSemx/tbfo7sZFPm3r4PM1Fih952HljWZ9BYC9uNPcCQPLalXiGuH7jK8Ljo5KeQhSYlu+F0=
+  on:
+    tags: true
+    repo: LuvDaSun/go-channel
