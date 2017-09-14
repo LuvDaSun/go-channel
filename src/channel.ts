@@ -24,8 +24,7 @@ export class Channel<T = any>
 
     public async send(message: T): Promise<void> {
         if (message === undefined) throw new Error("message cannot be undefined");
-
-        if (this.sender !== null) throw new Error("already sending!");
+        if (this.sender) await this.sender.promise;
 
         if (this.receiver !== null) {
             this.receiver.resolve(message);
@@ -51,13 +50,18 @@ export class Channel<T = any>
             this.sender = null;
         }
 
-        const message = this.messageBuffer.shift();
-        if (message !== undefined) {
-            return message;
+        {
+            const message = this.messageBuffer.shift();
+            if (message !== undefined) {
+                return message;
+            }
         }
 
-        this.receiver = defer<T>();
-        return await this.receiver.promise;
+        {
+            this.receiver = defer<T>();
+            const message = await this.receiver.promise;
+            return message;
+        }
     }
 
     public async close(): Promise<void> {
