@@ -1,5 +1,4 @@
 import * as test from "blue-tape";
-import { delay } from "promise-u";
 import { Channel, ReceiveChannel, SendChannel } from "./channel";
 
 test("create channel", async (t) => {
